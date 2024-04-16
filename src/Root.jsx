@@ -1,5 +1,5 @@
 import { Composition } from 'remotion';
-import { MyVideo } from './Video'; // Assume Video.tsx exports MyVideo
+import { MyVideo } from './Video';
 
 export const RemotionRoot = () => {
   return (
