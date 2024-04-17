@@ -11,12 +11,17 @@ import {FaHandsWash} from 'react-icons/fa';
 import {PiWavesBold} from 'react-icons/pi';
 import {MdIron} from 'react-icons/md';
 import {GiScrollUnfurled} from 'react-icons/gi';
-import {object} from 'zod';
+
 
 function Tips() {
 	const frame = useCurrentFrame();
+	console.log(frame)
+	const fadeInOpacity = interpolate(frame, [0, 30], [0, 1]);
 
-	const fadeInOpacity = interpolate(frame, [0, 0 + 20], [0, 1]);
+	const item1Opacity = interpolate(frame, [0, 20], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+	const item2Opacity = interpolate(frame, [20, 40], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+	const item3Opacity = interpolate(frame, [40, 60], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+	const item4Opacity = interpolate(frame, [60, 80], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
 
 	const containerStyle = {
 		backgroundColor: 'white',
@@ -38,7 +43,6 @@ function Tips() {
 	const itemStyle = {
 		marginBottom: '10px',
 		width: '85%',
-
 		display: 'flex',
 		gap: '5rem',
 		textAlign: 'left',
@@ -63,29 +67,30 @@ function Tips() {
 				objectFit: 'cover',
 				alignItems: 'center',
 				opacity: fadeInOpacity,
+			
 			}}
 		>
 			<div style={containerStyle}>
-				<div style={itemStyle}>
+				<div style={{...itemStyle,opacity:item4Opacity}}>
 					<FaHandsWash color="black" size={'110px'} />
 					<div style={textStyle}>
 						Hand wash using gentle detergent & cool water
 					</div>
 				</div>
-				<div style={itemStyle}>
+				<div style={{...itemStyle,opacity:item3Opacity}}>
 					<PiWavesBold size={'110px'} color="black" />
 					<div style={textStyle}>
 						Lay it flat on a clean towel and air dry it
 					</div>
 				</div>
-				<div style={itemStyle}>
+				<div style={{...itemStyle,opacity:item2Opacity}}>
 					<MdIron size={'110px'} color="black" />
 					<div style={textStyle}>
 						Never expose it to a direct heat source. Always place a cotton
 						material on top of the fabric
 					</div>
 				</div>
-				<div style={itemStyle}>
+				<div style={{...itemStyle,opacity:item1Opacity}}>
 					<GiScrollUnfurled size={'110px'} color="black" />
 
 					<div style={textStyle}>
