@@ -10,6 +10,8 @@ import {
 	Audio,
 	spring,
 } from 'remotion';
+import Tips from './components/Tips';
+import Follow from './components/Follow';
 
 const BackgroundImage = ({src}) => {
 	return (
@@ -106,11 +108,11 @@ export const MyVideo = () => {
 				/>
 			</Sequence>
 			<Sequence from={480} durationInFrames={600}>
-				<BackgroundImage src={'tips1.png'} />
+				<Tips />
 			</Sequence>
 
 			<Sequence from={620} durationInFrames={700}>
-				<BackgroundImage src={'InstaHandle1.png'} />
+				<Follow/>
 			</Sequence>
 
 			<Audio
